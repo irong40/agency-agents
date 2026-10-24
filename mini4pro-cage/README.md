@@ -1,51 +1,45 @@
-# DJI Mini 4 Pro connected propeller cage (v0.2, PROVISIONAL)
+# DJI Mini 4 Pro connected 360° propeller cage (v0.3, PROVISIONAL)
 
-A parametric, 3D-printable cage with two connected assemblies, one per side. Each assembly protects the front and rear propeller with an upper ring, a lower rail, vertical ribs, an outboard connecting bridge and snap clips on the arms.
+A parametric, 3D-printable cage modelled on the YMTIEXNG "Prop Guard Mini4Pro" reference photos. One figure-8 cage per side encloses the front and rear propeller. Each has a top loop, a top ring over each prop, spokes, a double outer rail with open C ends, hub rings under the motors, a spine, a waist bar, ribs and snap clips.
 
-**Status: not ready for a final print.** The drone dimensions are placeholders or derived from recalled published specs. Print the fit tests first, after you have taken the measurements in `docs/MEASUREMENTS_NEEDED.md`.
+**Status: not ready for a final print.** The scale comes from photo proportions plus a recalled DJI figure. Nothing has been measured on the drone yet. Print the clip ladders and fit tests first, after taking the measurements in `docs/MEASUREMENTS_NEEDED.md`.
 
-![Assembled cage, iso view](renders/assembly_iso.png)
+![Model from below](renders/cages_from_below.png)
+
+![Assembled](renders/assembly_iso.png)
 
 ## What was done and what was not
 
 | Item | Status |
 |---|---|
-| Reference photos and concept ZIP | **Not received.** Upload folders were empty. Layout follows your written description. |
-| Printables model 1411135 | **Not downloaded.** Blocked by this environment's network policy. No geometry reused. |
-| Amazon listing | **Not read.** Blocked by network policy. |
-| Parametric CAD (CadQuery, Python) | Done: `cad/mini4pro_cage.py` |
-| Front and rear fit tests, clip clearance ladders | Done: `stl/fit_tests/` |
-| Full cage STLs | Provisional only: `stl/provisional_cage/`. Regenerate after measuring. |
-| Mesh validation | Done. All files watertight. See `docs/VALIDATION.md`. |
-| Physical fit, strength, flight | **Not tested.** Plan in `docs/VALIDATION.md`. |
+| Reference photos (3) | Received and measured (`docs/DIMENSIONS.md`) |
+| Printables model 1411135, Amazon listing | **Not accessed.** Blocked by this environment's network policy. No third-party geometry used. |
+| Parametric model | `cad/mini4pro_cage.py` (Python, manifold3d) |
+| Fit tests and clip ladders | `stl/fit_tests/` |
+| Full cage | `stl/provisional_cage/`, 4 parts per side. Regenerate after measuring. |
+| Mesh and clearance checks | All files watertight, single solids, no keep-out intrusions, no part interference (`docs/VALIDATION.md`) |
+| Fit, strength, flight | **Not tested** |
 
-## Design
+## Deviations from the photographed product
 
-- **Upper ring + lower rail** around each prop, 6 mm radial clearance to the prop tip, joined by vertical ribs every 28 mm or less.
-- **Open sector facing the fuselage** (100°), so nothing crosses the body, camera or the other side.
-- **Front and rear rings meet** at an outboard point (the two prop disks overlap in plan view). An **outboard lap-joint bridge** connects them there, held by two M2 screws or filament pins. This joint is also the modular split, which keeps every part under 180 × 180 mm.
-- **Snap C-clips** grip each arm from below, with a backup zip-tie groove. Two struts per clip run to the lower rail.
-- A **propeller keep-out cylinder** is subtracted from every part, so no parameter change can put structure in the prop path.
-
-![Top view](renders/assembly_top.png)
-
-| Joint | Clip |
-|---|---|
-| ![joint](renders/joint_closeup.png) | ![clip](renders/clip_closeup_from_below.png) |
+1. The side ribs are near-vertical and the upper outer rail sits in the flat lid. The photo's outward bulge cannot print without supports.
+2. The inboard waist leg sits 16 mm inboard of the photo position, to clear the assumed 154 mm props.
+3. The clips grip the arm next to the motor instead of cupping the motor base (motor-base shape unknown).
+4. Each side is four printed parts (lid and body, split at the waist with dovetails) instead of one molding, so every part fits a 180 mm bed.
 
 ## Files
 
 ```
-cad/mini4pro_cage.py        parametric model, all dimensions tagged by source
-cad/validate.py             mesh + clearance + build-volume checks
-cad/render.py               PNG renders
-cad/variants/light.json     lighter cage (about 42 g instead of 57 g in PETG)
+cad/mini4pro_cage.py      parametric model, every dimension tagged by source
+cad/validate.py           mesh, clearance, interference, build-volume checks
+cad/render.py             renders (set REF_IMAGES=<folder> for local photo comparisons; do not commit those)
+cad/variants/light.json   about 52 g instead of 69 g (PETG, both sides)
 cad/variants/measurements_TEMPLATE.json
-stl/fit_tests/              print these first
-stl/provisional_cage/       4 modules, left/right x front/rear
-build/                      assembled-pose STLs, build and validation reports
-renders/                    views
-docs/                       dimensions, measurements needed, printing, validation, attribution
+stl/fit_tests/            print these first
+stl/provisional_cage/     left/right x body/lid x front/rear
+build/                    assembled-pose STLs, build and validation reports
+renders/                  model views
+docs/                     dimensions, measurements needed, printing, validation, attribution
 ```
 
 ## Regenerate
@@ -58,8 +52,4 @@ cd cad
 ../venv/bin/python render.py
 ```
 
-Without `--json` the script builds the defaults. Use `--json variants/light.json` for the light version.
-
-## Next step
-
-Send the measurements M1 to M10 (or the three photos) listed in `docs/MEASUREMENTS_NEEDED.md`, the product photos, and the library printer model.
+The build takes a few seconds.

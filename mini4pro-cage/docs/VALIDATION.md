@@ -1,67 +1,58 @@
-# Validation
+# Validation (v0.3)
 
-## What was actually tested
+Results from `cad/validate.py`, run on the files in this folder. Full output: `build/validation_report.json`.
 
-All results come from `cad/validate.py`, run on the STLs in this folder. Full output: `build/validation_report.json`.
+## Mesh integrity
 
-### Mesh integrity
+| File | Watertight | Winding | Bodies | PETG mass (g) |
+|---|---|---|---|---|
+| Clip clearance ladders (×2) | yes | yes | 3 (three separate clips, by design) | 2.3 each |
+| Mount fit tests (×2) | yes | yes | 1 | 4.8 each |
+| Body front (L/R) | yes | yes | 1 | 9.7 each |
+| Body rear (L/R) | yes | yes | 1 | 8.2 each |
+| Lid front (L/R) | yes | yes | 1 | 8.5 each |
+| Lid rear (L/R) | yes | yes | 1 | 8.2 each |
 
-| File | Watertight | Winding consistent | Bodies | Volume (cm³) | PETG mass (g) |
-|---|---|---|---|---|---|
-| front_clip_clearance_ladder | yes | yes | 3 (3 separate clips, by design) | 2.57 | 3.3 |
-| rear_clip_clearance_ladder | yes | yes | 3 (by design) | 2.57 | 3.3 |
-| front_mount_fit_test | yes | yes | 1 | 3.48 | 4.4 |
-| rear_mount_fit_test | yes | yes | 1 | 3.49 | 4.4 |
-| PROVISIONAL left/right front module | yes | yes | 1 | 10.96 | 13.9 |
-| PROVISIONAL left/right rear module | yes | yes | 1 | 11.28 | 14.3 |
-
-**Full cage, both sides:** 44.5 cm³, about 55 g in PLA or 57 g in PETG, plus about 2 g of hardware. `variants/light.json` brings it to about 42 g in PETG.
-
-### Defects found and fixed during this work
-
-1. The joint block and ring ends intruded into the propeller clearance zone (0.4 mm clearance left). Fixed by moving the block outboard and subtracting a propeller keep-out cylinder from every part.
-2. Two rib faces lay tangent to the ring cylinder, and the STL mesher dropped them (open mesh, wrong volume). Fixed by setting ribs 0.4 mm into the ring wall and 0.6 mm proud of it.
-3. The export check left cached per-face meshes, which cracked the STL along shared edges. Fixed by clearing the cache before export. Export now refuses to write a file if any face fails to mesh.
-
-### Geometry checks against the parameters
-
-These checks are only as good as the ASSUMED parameters in `DIMENSIONS.md`.
+## Model checks against the parameters
 
 | Check | Result |
 |---|---|
-| Min radial clearance, prop tip to cage, front / rear | 5.98 mm / 5.98 mm (target 6.0) |
-| Structure inside either prop disk near the prop plane | none |
-| Structure inside the motor keep-out | none |
-| Structure inside the fuselage keep-out box | none (min gap 18.6 mm) |
-| Front module vs rear module overlap, assembled | 0.012 mm³: tessellation noise across the 0.15 mm joint gap |
-| Left vs right cage gap at the nose | 44.6 mm |
-| Lowest point vs assumed table plane | 20 mm above. The cage is not a landing gear. |
-| Distance to assumed camera lens | 33.6 mm |
-| Structure ahead of the lens within ±45° horizontally | **yes**. The front rings may show in footage. Not fixable by moving the front gap alone. Test on the drone. |
+| Material removed by the propeller keep-out, every part | 0 mm³ (no member enters the prop path) |
+| Material removed by the arm keep-out, every part | 0 mm³ |
+| Interference between any two parts, assembled | 0 mm³ |
+| Min radial clearance, prop tip to cage, at prop height | 5.74 mm (keep-out set at 5.7) |
+| Lowest lid point above the prop plane, inside the disk | 10.9 mm |
+| Highest bottom-level point below the prop plane, inside the disk | 5.95 mm (the clip top, under the blade root) |
+| Fuselage keep-out box | no intrusion, 12 mm gap |
+| Left to right cage gap | 90 mm |
+| Structure ahead of the camera within ±45° | yes. The front lobes will likely show in footage when the gimbal tilts up. |
+| Lowest point vs assumed table plane | 22.8 mm above. The drone still lands on its own feet unless the real `landing_z` differs. |
 
-### Not tested
+## Defects found and fixed during v0.3
 
-Real fit, strength, deflection, crash behaviour, vibration, compass effect, obstacle sensing, flight behaviour. A watertight mesh says nothing about any of these.
+1. The inboard waist leg and its boss entered the front propeller's clearance zone. Caught by the keep-out trim report and fixed by moving the leg joint onto a short lid link.
+2. The arm keep-out cut the clips. Fixed by adding clips after the subtraction.
+3. Non-manifold STL edges from coincident primitives and pinch points. Fixed at the root: flat levels are now 2D outlines extruded once, and every 3D foot is 0.4 mm narrower than the outline it sits in.
+4. The dovetail tongue overlapped the waist rib's pad. Fixed by moving the waist features 3 mm forward and the split 1 mm back.
+
+## Not tested
+
+Fit on the real drone, strength, deflection, crash behaviour, vibration, compass and obstacle-sensing effects, flight. A watertight mesh says nothing about these.
 
 ## Physical validation plan
 
-Run the steps in order. Stop at the first failure, fix the parameter, regenerate, and repeat that step.
-
-| Step | Test | Pass criteria |
+| Step | Test | Pass |
 |---|---|---|
-| 1 | Enter M1 to M10 into `variants/measured.json`. Regenerate, then rerun `validate.py`. | All checks clean |
-| 2 | Print both clip ladders in the final material. Try each clip on its arm. | One clip snaps on with firm thumb pressure, does not rattle or slide, comes off by hand, leaves no marks. Set `clip_clear` to that clip's value. |
-| 3 | Print both fit tests. Snap each onto its arm. | Clip seats fully. Nothing touches the motor bell, vents, wires or landing foot. |
-| 4 | With the fit test on, turn the prop by hand. Slide a 5 mm drill bit between prop tip and ring at both ring segments. | The bit passes. The gap is at least 5 mm. |
-| 5 | Print and assemble the full cage. Weigh the drone with the cage on a 0.1 g kitchen scale. | Record the weight. Over 250 g changes the FAA rules (see below). |
-| 6 | Deflection: props off, motors off. Push the outermost ring point inward with a luggage scale to 5 N (about 0.5 kg). Measure the inward movement. | Movement is less than 5 mm (clearance minus 1 mm) |
-| 7 | Retention: hold the drone and give the cage a firm 10 N tug in each direction. | Clips stay seated |
-| 8 | Power on. Check DJI Fly for compass or IMU warnings. Tilt the gimbal through its full range in live view. | No new warnings. Note whether the rings show in frame. |
-| 9 | Hover at 2 m in an open area, no wind, 30 seconds. Land and inspect. | No contact marks on the props or rings, no new vibration, no obstacle-sensing alerts caused by the cage |
-| 10 | Short gentle flight. Compare battery use against a flight without the cage. | Acceptable handling and flight time |
-
-After any impact, check the clips and joint for cracks before the next flight.
+| 1 | Measure M1 to M10, regenerate with `--json variants/measured.json`, rerun `validate.py` | All keep-out trims 0 |
+| 2 | Clip ladders in final material | One clip snaps on by hand, holds without rattle, comes off by hand. Set `clip_clear`. |
+| 3 | Fit tests on each arm | Clip seats. Hub ring clears the motor base. Turn the prop: the tip passes the three rib stubs with at least 5 mm (drill-bit gauge). |
+| 4 | Full cage, assembled | All pegs and dovetails seat. Weigh the drone with cages (0.1 g scale). |
+| 5 | Deflection: props off. Push the outer rail inward at mid-lobe with a luggage scale to 5 N | Inward movement under 5 mm |
+| 6 | Retention: 10 N tug on each cage | Clips stay on |
+| 7 | Power on, DJI Fly | No compass or IMU warnings. Check gimbal live view for the rings. Check obstacle-sensing alerts. |
+| 8 | 30 s hover at 2 m, open area, calm air | No contact marks, no new vibration |
+| 9 | Short gentle flight | Handling and battery use acceptable |
 
 ## Weight and regulations
 
-The Mini 4 Pro is sold under 249 g with the standard battery. This cage adds about 42 to 57 g. In the US, a recreational drone at 250 g or more must be registered with the FAA and must meet Remote ID rules. Check the current FAA rules before flying with the cage installed.
+The Mini 4 Pro is sold under 249 g with the standard battery. These cages add about 52 to 69 g. In the US, a recreational drone at 250 g or more must be registered with the FAA and must meet Remote ID rules. Check current FAA rules before flying with the cages installed.

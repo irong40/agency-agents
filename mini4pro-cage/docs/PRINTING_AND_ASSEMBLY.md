@@ -1,64 +1,59 @@
-# Printing and assembly
+# Printing and assembly (v0.3)
 
-**The library printer is not confirmed yet.** The settings below are generic FDM settings that work on the machines public libraries commonly run (Prusa, Bambu Lab, Ultimaker, Creality, MakerBot). Adjust them once you know the machine.
+**The library printer is not confirmed.** These are generic FDM settings for a 0.4 mm nozzle.
 
-## Build volume
+## Parts
 
-Every part fits the smallest common bed (180 × 180 mm, Prusa MINI+ and Bambu A1 mini) with at least 2.5 mm margin. The modular split keeps it that way, so nothing needs scaling. **Never scale these files:** scaling changes the clip fit and the propeller clearance.
+Each side has four parts. The right side is a mirror image of the left.
 
-| File | Footprint on bed (mm) | Height (mm) | Rotate on bed |
+| File | Footprint (mm) | Height | Orientation |
 |---|---|---|---|
-| `front_mount_fit_test.stl` / `rear_` | 169 × 28 | 24.9 | diagonal |
-| `*_clip_clearance_ladder.stl` | 61 × 14 | 12.4 | none |
-| `PROVISIONAL_*_front_module.stl` | 171 × 123 | 24.9 | about 45° |
-| `PROVISIONAL_*_rear_module.stl` | 175 × 120 | 24.9 | about 40° |
+| `PROVISIONAL_*_body_front.stl` | 172 × 145 | 35.5 | Bottom level on the bed, clip openings up |
+| `PROVISIONAL_*_body_rear.stl` | 180 × 117 (fits diagonally) | 35.5 | Same |
+| `PROVISIONAL_*_lid_front.stl` | 168 × 153 | 5.2 | Top face on the bed, pads and holes up |
+| `PROVISIONAL_*_lid_rear.stl` | 159 × 153 | 5.2 | Same |
+| `front_/rear_mount_fit_test.stl` | 128 × 113 | 33.1 | As exported |
+| `*_clip_clearance_ladder.stl` | 61 × 10 | 12.4 | As exported |
 
-The STLs are already oriented: upper ring on the bed, clip opening facing up.
+Every file fits a 180 × 180 mm bed with 4 mm margin at some rotation, so it fits any common library printer. **Do not scale.**
 
 ## Material
 
-| Use | Material | Why |
-|---|---|---|
-| Clip ladders and fit tests | PLA is fine | Cheap, fast, checks geometry |
-| Final cage | **PETG** preferred | Flexes instead of shattering on impact. Snap clips last longer. |
-| Final cage if only PLA is offered | PLA+ or tough PLA | Plain PLA cracks at the clips and goes brittle in cold air |
-| Not recommended | TPU | Too flexible: the ring would deflect into the props |
+| Use | Material |
+|---|---|
+| Clip ladders and fit tests | PLA is fine for geometry checks |
+| Final cage | **PETG** preferred. PLA+ or tough PLA if that is all the library has. |
+| Avoid | Plain PLA for the final cage (brittle), TPU (too flexible) |
 
-Do the clip ladder test **in the final material**. PETG and PLA snap differently.
+Do the clip ladder in the final material. Snap fits behave differently in PLA and PETG.
 
-## Slicer settings (0.4 mm nozzle)
+## Slicer settings
 
 | Setting | Value |
 |---|---|
 | Layer height | 0.16 to 0.20 mm |
-| Perimeters / walls | 3 (the thin members then print solid) |
-| Infill | 100%, or 40% gyroid. The rings print solid either way. |
-| Supports | **On, tree or organic, build plate only.** The struts and clip sit above the bed. |
-| Brim | 5 mm. The upper ring touches the bed with only a 2.6 mm strip. |
-| Bridging | Default bridge settings. The lower rail bridges up to 28 mm between ribs. |
-| Speed | Outer walls 40 mm/s or slower for clean clip surfaces |
+| Walls | 3 or more (the bars then print solid) |
+| Infill | 100% (the bars are too thin for infill to matter) |
+| Supports | **Off** for lids. Bodies: try off first. The validator found 2.5% overhang, mostly under the clip floors. Enable supports only if the clip floor sags. |
+| Brim | 3 to 5 mm. The bars are 2 to 3 mm wide. |
+| First layer | Slow, with a clean bed. The lids are mostly first layer. |
 
-The validator measured 10 to 15% of each part's surface as more than 45° overhang in this orientation. Expect light support on the struts and under the clip.
+## Weight
 
-## Print order
+| Version | PETG |
+|---|---|
+| Default (`python mini4pro_cage.py`) | about 69 g for both sides |
+| `variants/light.json` | about 52 g |
 
-1. Both clip clearance ladders (each about 3 g).
-2. Both fit tests (each about 4.5 g).
-3. Only after the fit tests pass, and after the model is regenerated with your measurements: the four cage modules (left front, left rear, right front, right rear).
-
-## Hardware
-
-- 4× M2 × 10 mm screws with nuts, **nylon preferred**. Steel screws sit near the arms, and the compass location on the Mini 4 Pro is not known here.
-- Or 4 short lengths of 1.75 mm filament as pins. Glue them in, or melt the ends flat with a soldering iron.
-- Optional: 2.5 mm zip ties for the backup groove on each clip.
+No hardware is required.
 
 ## Assembly
 
-1. Remove supports and brim. Clean the inside of each clip with a hobby knife: any stringing there changes the fit.
-2. Join each front module to its rear module at the outboard lap joint. Insert the two screws or pins. Each side is now one cage.
-3. Unfold the drone arms fully.
-4. Line the cage up from below so each clip sits under its arm. Press the front clip onto the arm until it snaps, then the rear clip.
-5. Turn every propeller by hand through a full turn. Nothing may touch.
-6. Optional: a zip tie through each clip groove.
+1. Remove brims. Clean the dovetail pockets and peg holes with a hobby knife.
+2. Join each body front to body rear: slide the tongues down into the pockets. Add a drop of CA glue.
+3. Join each lid front to lid rear the same way.
+4. Press the lid onto the body: the 14 pegs on the rib tops go into the holes in the lid pads. Glue if the fit is loose.
+5. Unfold the drone arms. Hold the cage under one side so each clip sits below its arm, next to the motor. Push up until both clips snap over the arms.
+6. Turn every propeller by hand. Nothing may touch.
 
-**Removal:** unsnap the clips. The cage stays in one piece. The drone cannot fold with the cage installed, so remove it before folding.
+Removal: unsnap the two clips on each side. The drone cannot fold with the cages on.

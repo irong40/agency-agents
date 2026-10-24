@@ -1,8 +1,13 @@
 {
-  "ring_w": 2.2,
-  "ring_h": 3.0,
-  "rib_w": 2.0,
-  "rib_spacing": 34.0,
-  "strut_d": 2.8,
-  "clip_wall": 1.6
+  "_comment": "Lighter v0.3 cage: thinner flat bars and members. Stiffer is safer; test deflection before flying.",
+  "lid_h": 1.8,
+  "bot_h": 2.0,
+  "loop_w": 2.6,
+  "rail_w": 2.2,
+  "ring_w": 1.6,
+  "spoke_w": 1.6,
+  "hub_w": 2.4,
+  "spine_w": 2.2,
+  "rib_w": 2.2,
+  "waist_w": 2.2
 }
