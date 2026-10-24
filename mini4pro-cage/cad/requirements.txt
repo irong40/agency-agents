@@ -1,0 +1,7 @@
+cadquery==2.8.0
+trimesh==5.2.0
+manifold3d
+networkx
+scipy
+matplotlib
+numpy

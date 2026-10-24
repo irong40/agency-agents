@@ -1,0 +1,18 @@
+{
+  "_comment": "Copy to measured.json, replace values with your caliper measurements, delete keys you did not measure, then run: python mini4pro_cage.py --json variants/measured.json",
+  "prop_diameter": 152.4,
+  "front_motor": [73.0, 110.5, 0.0],
+  "rear_motor": [-73.0, 105.0, -10.0],
+  "motor_keepout_r": 11.0,
+  "front_clip_dist": 22.0,
+  "rear_clip_dist": 22.0,
+  "front_clip_dz": -12.0,
+  "rear_clip_dz": -12.0,
+  "front_arm_w": 12.0,
+  "front_arm_h": 8.0,
+  "rear_arm_w": 12.0,
+  "rear_arm_h": 8.0,
+  "body_box": [-75.0, 75.0, -33.0, 33.0, -45.0, 15.0],
+  "camera_pt": [80.0, 0.0, -25.0],
+  "landing_z": -48.0
+}
