@@ -1,0 +1,364 @@
+{
+  "meshes": [
+    {
+      "file": "stl/fit_tests/front_clip_clearance_ladder.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 3,
+      "triangles": 852,
+      "volume_cm3": 1.84,
+      "mass_g_PLA": 2.3,
+      "mass_g_PETG": 2.3,
+      "footprint_mm": [
+        60.9,
+        10.0
+      ],
+      "height_mm": 12.4,
+      "rotate_on_bed_deg": 0,
+      "overhang_pct_over45": 10.2,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/fit_tests/front_mount_fit_test.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 1864,
+      "volume_cm3": 3.76,
+      "mass_g_PLA": 4.7,
+      "mass_g_PETG": 4.8,
+      "footprint_mm": [
+        128.3,
+        112.7
+      ],
+      "height_mm": 33.1,
+      "rotate_on_bed_deg": 8,
+      "overhang_pct_over45": 3.5,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/fit_tests/rear_clip_clearance_ladder.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 3,
+      "triangles": 852,
+      "volume_cm3": 1.84,
+      "mass_g_PLA": 2.3,
+      "mass_g_PETG": 2.3,
+      "footprint_mm": [
+        60.9,
+        10.0
+      ],
+      "height_mm": 12.4,
+      "rotate_on_bed_deg": 0,
+      "overhang_pct_over45": 10.2,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/fit_tests/rear_mount_fit_test.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 1864,
+      "volume_cm3": 3.76,
+      "mass_g_PLA": 4.7,
+      "mass_g_PETG": 4.8,
+      "footprint_mm": [
+        128.3,
+        112.7
+      ],
+      "height_mm": 33.1,
+      "rotate_on_bed_deg": 172,
+      "overhang_pct_over45": 3.5,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_left_body_front.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 3720,
+      "volume_cm3": 7.64,
+      "mass_g_PLA": 9.5,
+      "mass_g_PETG": 9.7,
+      "footprint_mm": [
+        171.9,
+        145.2
+      ],
+      "height_mm": 35.5,
+      "rotate_on_bed_deg": 86,
+      "overhang_pct_over45": 2.4,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_left_body_rear.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 3040,
+      "volume_cm3": 6.48,
+      "mass_g_PLA": 8.0,
+      "mass_g_PETG": 8.2,
+      "footprint_mm": [
+        179.5,
+        117.1
+      ],
+      "height_mm": 35.5,
+      "rotate_on_bed_deg": 74,
+      "overhang_pct_over45": 2.6,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_left_lid_front.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 4088,
+      "volume_cm3": 6.66,
+      "mass_g_PLA": 8.3,
+      "mass_g_PETG": 8.5,
+      "footprint_mm": [
+        167.5,
+        153.0
+      ],
+      "height_mm": 5.2,
+      "rotate_on_bed_deg": 0,
+      "overhang_pct_over45": 0.0,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_left_lid_rear.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 3448,
+      "volume_cm3": 6.44,
+      "mass_g_PLA": 8.0,
+      "mass_g_PETG": 8.2,
+      "footprint_mm": [
+        158.5,
+        153.0
+      ],
+      "height_mm": 5.2,
+      "rotate_on_bed_deg": 0,
+      "overhang_pct_over45": 0.0,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_right_body_front.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 3720,
+      "volume_cm3": 7.64,
+      "mass_g_PLA": 9.5,
+      "mass_g_PETG": 9.7,
+      "footprint_mm": [
+        171.9,
+        145.2
+      ],
+      "height_mm": 35.5,
+      "rotate_on_bed_deg": 4,
+      "overhang_pct_over45": 2.4,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_right_body_rear.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 3040,
+      "volume_cm3": 6.48,
+      "mass_g_PLA": 8.0,
+      "mass_g_PETG": 8.2,
+      "footprint_mm": [
+        179.5,
+        117.1
+      ],
+      "height_mm": 35.5,
+      "rotate_on_bed_deg": 106,
+      "overhang_pct_over45": 2.6,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_right_lid_front.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 4088,
+      "volume_cm3": 6.66,
+      "mass_g_PLA": 8.3,
+      "mass_g_PETG": 8.5,
+      "footprint_mm": [
+        167.5,
+        153.0
+      ],
+      "height_mm": 5.2,
+      "rotate_on_bed_deg": 0,
+      "overhang_pct_over45": 0.0,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    },
+    {
+      "file": "stl/provisional_cage/PROVISIONAL_right_lid_rear.stl",
+      "watertight": true,
+      "winding_consistent": true,
+      "bodies": 1,
+      "triangles": 3448,
+      "volume_cm3": 6.44,
+      "mass_g_PLA": 8.0,
+      "mass_g_PETG": 8.2,
+      "footprint_mm": [
+        158.5,
+        153.0
+      ],
+      "height_mm": 5.2,
+      "rotate_on_bed_deg": 0,
+      "overhang_pct_over45": 0.0,
+      "fits": [
+        "Prusa MINI+",
+        "Bambu Lab A1 mini",
+        "Prusa MK4/MK4S",
+        "Bambu Lab A1 / P1S / X1C",
+        "Creality Ender-3 (V2)",
+        "Ultimaker S3",
+        "MakerBot Replicator+"
+      ]
+    }
+  ],
+  "assembled_interference_mm3": {
+    "body_front vs body_rear": 0.0,
+    "body_front vs lid_front": 0.0,
+    "body_front vs lid_rear": 0.0,
+    "body_rear vs lid_front": 0.0,
+    "body_rear vs lid_rear": 0.0,
+    "lid_front vs lid_rear": 0.0,
+    "left vs right (all)": 0.0
+  },
+  "clearances_vs_parameters": {
+    "front_prop_min_radial_clear_mm": 5.74,
+    "front_prop_disk_intrusions": 0,
+    "front_top_level_min_height_above_prop_mm": 10.9,
+    "front_bottom_level_max_height_below_prop_mm": 5.95,
+    "front_motor_keepout_intrusions": 0,
+    "rear_prop_min_radial_clear_mm": 5.74,
+    "rear_prop_disk_intrusions": 0,
+    "rear_top_level_min_height_above_prop_mm": 10.9,
+    "rear_bottom_level_max_height_below_prop_mm": 5.95,
+    "rear_motor_keepout_intrusions": 0,
+    "body_box_intrusions": 0,
+    "body_box_min_gap_mm": 12.0,
+    "camera_min_dist_mm": 57.8,
+    "structure_ahead_of_camera_within_45deg": 298,
+    "lowest_point_z": -25.2,
+    "landing_plane_margin_mm": 22.8,
+    "left_right_min_y_gap_mm": 90.0
+  },
+  "full_cage_both_sides": {
+    "volume_cm3": 54.4,
+    "mass_g_PLA": 67.5,
+    "mass_g_PETG": 69.1,
+    "hardware": "none required; CA glue on pegs and dovetails recommended"
+  },
+  "keepout_trim_mm3": {
+    "prop": {
+      "body_front": 0.0,
+      "body_rear": 0.0,
+      "lid_front": 0.0,
+      "lid_rear": 0.0
+    },
+    "arm": {
+      "body_front": -0.0,
+      "body_rear": 0.0,
+      "lid_front": 0.0,
+      "lid_rear": 0.0
+    }
+  }
+}

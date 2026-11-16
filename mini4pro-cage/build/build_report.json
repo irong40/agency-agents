@@ -1,0 +1,137 @@
+{
+  "ribs": 13,
+  "peg_points": 14,
+  "body_joints": 2,
+  "lid_joints": 3,
+  "arm_keepout_trim_mm3": {
+    "body_front": -0.0,
+    "body_rear": 0.0,
+    "lid_front": 0.0,
+    "lid_rear": 0.0
+  },
+  "prop_keepout_trim_mm3": {
+    "body_front": 0.0,
+    "body_rear": 0.0,
+    "lid_front": 0.0,
+    "lid_rear": 0.0
+  },
+  "clips": {
+    "front": {
+      "arm_angle": -123.32628968711522,
+      "clip_center": [
+        62.110687259217684,
+        94.46000354006023,
+        -12.0
+      ],
+      "clip_outer_w": 16.1,
+      "clip_outer_h": 12.1
+    },
+    "rear": {
+      "arm_angle": -56.673710312884786,
+      "clip_center": [
+        -62.110687259217684,
+        94.46000354006023,
+        -12.0
+      ],
+      "clip_outer_w": 16.1,
+      "clip_outer_h": 12.1
+    }
+  },
+  "motor_spacing_mm": 144.0,
+  "waist_midpoint": [
+    0.0,
+    109.5
+  ],
+  "params": {
+    "prop_diameter": 154.0,
+    "front_motor": [
+      72.0,
+      109.5,
+      0.0
+    ],
+    "rear_motor": [
+      -72.0,
+      109.5,
+      0.0
+    ],
+    "prop_cone_up": 4.0,
+    "radial_clearance": 6.0,
+    "prop_vertical_keepout": 5.0,
+    "motor_keepout_r": 11.0,
+    "front_arm_angle": null,
+    "rear_arm_angle": null,
+    "front_clip_dist": 18.0,
+    "rear_clip_dist": 18.0,
+    "front_clip_dz": -12.0,
+    "rear_clip_dz": -12.0,
+    "front_arm_w": 12.0,
+    "front_arm_h": 8.0,
+    "rear_arm_w": 12.0,
+    "rear_arm_h": 8.0,
+    "arm_keepout_clear": 1.5,
+    "clip_len": 10.0,
+    "clip_wall": 1.8,
+    "clip_clear": 0.25,
+    "snap_lip": 0.8,
+    "zip_groove_w": 2.5,
+    "zip_groove_d": 0.6,
+    "loop_r": 63.0,
+    "top_ring_r": 44.0,
+    "hub_ring_r": 21.5,
+    "rail_r": 91.5,
+    "rail_upper_inset": 6.0,
+    "loop_waist_w": 36.0,
+    "rail_waist_w": 66.0,
+    "cut_theta": 60.0,
+    "spoke_thetas": [
+      60.0,
+      121.0,
+      180.0
+    ],
+    "short_spoke_theta": -25.0,
+    "z_top": 12.0,
+    "z_bot": -24.0,
+    "lid_h": 2.2,
+    "bot_h": 2.4,
+    "loop_w": 3.0,
+    "rail_w": 2.6,
+    "ring_w": 2.0,
+    "spoke_w": 2.0,
+    "hub_w": 2.8,
+    "spine_w": 2.6,
+    "rib_w": 2.6,
+    "waist_w": 2.6,
+    "rib_spacing": 55.0,
+    "waist_leg_base_w": 56.0,
+    "waist_leg_top_w": 52.0,
+    "waist_feature_offset": 3.0,
+    "boss_d": 5.5,
+    "boss_h": 4.0,
+    "peg_d": 2.0,
+    "peg_h": 2.4,
+    "peg_hole_d": 2.4,
+    "lid_pad_h": 3.0,
+    "split_waist": true,
+    "split_offset": 7.0,
+    "dove_pad_l": 16.0,
+    "dove_pad_w": 10.0,
+    "dove_neck": 4.0,
+    "dove_tip": 6.5,
+    "dove_depth": 5.0,
+    "dove_clear": 0.15,
+    "body_box": [
+      -75.0,
+      75.0,
+      -33.0,
+      33.0,
+      -45.0,
+      15.0
+    ],
+    "camera_pt": [
+      80.0,
+      0.0,
+      -25.0
+    ],
+    "landing_z": -48.0
+  }
+}
